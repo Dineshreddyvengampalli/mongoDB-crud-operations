@@ -39,8 +39,8 @@ describe('User Operations - Basic flow only:', function() {
         console.log(userDetails)
         expect(userDetailsFixture.firstName, userDetails.firstName);
         expect(userDetailsFixture.lastName, userDetails.lastName);
-        expect(userDetailsFixture.emailId, userDetails.emailId);
-        expect(userDetailsFixture.loginId, userDetails.loginId);
+        expect(userDetailsFixture.aadharNumber, userDetails.aadharNumber);
+        expect(userDetailsFixture.phoneNumber, userDetails.phoneNumber);
         done();
     });
   });
@@ -54,9 +54,8 @@ describe('User Operations - Basic flow only:', function() {
                         "body": {
                             firstName : "userFirstNameUpdated",
                             lastName : "userLastNameUpdated",
-                            emailId : "user@gmail.comUpdated",
-                            loginId : "user@gmail.comUpdated",
-                            dob: _date
+                            aadharNumber : 9200123478499,
+                            phoneNumber : 1234,
                         },
                         "params":{
                             "userId": global.testId
@@ -65,9 +64,8 @@ describe('User Operations - Basic flow only:', function() {
     userOperations.updateUserDetails(request, response).then(function(userDetails){
         expect(request.body.firstName, userDetails.firstName);
         expect(request.body.lastName, userDetails.lastName);
-        expect(request.body.emailId, userDetails.emailId);
-        expect(request.body.loginId, userDetails.loginId);
-        expect(_date, userDetails.dob);
+        expect(request.body.aadharNumber, userDetails.aadharNumber);
+        expect(request.body.phoneNumber, userDetails.phoneNumber);
         global.testId = userDetails._id;
         done();
     });
@@ -88,8 +86,8 @@ describe('User Operations - Basic flow only:', function() {
     userOperations.updateUserDetails(request, response).then(function(userDetails){
         expect(request.body.firstName, userDetails.firstName);
         expect(userDetailsFixture.lastName, userDetails.lastName);
-        expect(userDetailsFixture.emailId, userDetails.emailId);
-        expect(userDetailsFixture.loginId, userDetails.loginId);
+        expect(userDetailsFixture.aadharNumber, userDetails.aadharNumber);
+        expect(userDetailsFixture.phoneNumber, userDetails.phoneNumber);
         global.testId = userDetails._id;
         done();
     });
