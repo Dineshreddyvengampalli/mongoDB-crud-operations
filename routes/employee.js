@@ -4,7 +4,7 @@ const router = express.Router()
 let operations = require('../src/operations')
 
 
-router.post('/post',(req,res)=>{
+router.post('/',(req,res)=>{
     operations.createUserDetails(req,res)
 })
 

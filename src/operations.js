@@ -15,16 +15,15 @@ var getAllUserDetails = function (req, res) {
 
 let getOneUserDetails = function (req, res) {
 	return Employee.findById(req.params.employeeID, function (err, employee) {
-		if (!err) {
+		if (!err && employee) {
 			return res.json({
 				statusCode : 200,
 				employee : employee
 			});
 		} else {
-			return res.json({
-				statusCode : 500,
-				error : 'Server error'
-			});
+			return res.status(404).json({
+				message : 'details not found'
+			})
 		}
 	});
 }
