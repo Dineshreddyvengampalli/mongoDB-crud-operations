@@ -93,10 +93,10 @@ let removeUserDetails = function (req, res) {
 			});
 		}
 
-		return employee.remove(function (err) {
+		return employee.remove(function (err,employee) {
 			if (!err) {
 				return res.json({
-					status : 200
+					employee : employee
 				});
 			} else {
 				return res.json({

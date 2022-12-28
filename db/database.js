@@ -1,5 +1,6 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/employees', function(err, res) {
+mongoose.connect(`mongodb+srv://dinesh:${process.env.mongo_db_password}@cluster0.6swpel0.mongodb.net/?retryWrites=true&w=majority`, function(err, res) {
 	if(err) {
 		console.log('ERROR: connecting to Database. ' + err);
 	} else {

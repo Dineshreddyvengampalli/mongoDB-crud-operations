@@ -16,4 +16,5 @@ COPY --from=Build /home/node/crud_app .
 
 COPY . .
 
+
 CMD [ "npm","run","start" ]
